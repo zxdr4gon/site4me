@@ -25,8 +25,8 @@
    ============================================================ */
 
 const GH_CONFIG = {
-  owner:  "YOUR-GITHUB-USERNAME",
-  repo:   "YOUR-REPO-NAME",
+  owner:  "zxdr4gon",
+  repo:   "site4me",
   branch: "main",
 };
 
