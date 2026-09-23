@@ -31,7 +31,7 @@ const GH_CONFIG = {
 };
 
 const GHCMS = (() => {
-  const TOKEN_KEY = "archive_gh_token";
+  const TOKEN_KEY = "archive-site4me";
 
   function getToken(){ return localStorage.getItem(TOKEN_KEY) || ""; }
   function setToken(t){ localStorage.setItem(TOKEN_KEY, t); }
