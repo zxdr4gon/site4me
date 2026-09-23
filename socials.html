@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Socials &middot; The Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+<main class="shell">
+
+  <section style="margin:38px 0 20px;">
+    <div class="label">CATALOG NO. 002 &middot; SOCIALS</div>
+    <h1>Socials</h1>
+    <p style="color:var(--ink-dim);">Where to find me elsewhere.</p>
+  </section>
+
+  <div id="mount"></div>
+</main>
+
+<script src="js/app.js"></script>
+<script src="js/github-cms.js"></script>
+<script src="js/list-editor.js"></script>
+<script>
+  renderShell("socials");
+  renderListPage({
+    mount: document.getElementById("mount"),
+    dataPath: "data/socials.json",
+    itemLabel: "link",
+    emptyText: "No socials linked yet.",
+    tabClass: "",
+    fields: [{"key": "platform", "label": "Platform", "type": "text", "role": "title", "required": true}, {"key": "handle", "label": "Handle", "type": "text", "role": "meta"}, {"key": "url", "label": "Link", "type": "url", "role": "link", "required": true}]
+  });
+</script>
+<footer class="site-foot">The Archive &middot; built by hand, hosted on GitHub Pages</footer>
+</body>
+</html>

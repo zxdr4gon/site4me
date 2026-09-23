@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+<main class="shell">
+
+  <section style="margin:38px 0 30px;">
+    <div class="label">CATALOG NO. 001 &middot; HOME</div>
+    <h1 style="font-size:2rem; margin-top:6px;">A running record, kept by hand.</h1>
+    <p style="color:var(--ink-dim); font-size:1.05rem;">
+      This is a personal archive — half workspace, half card catalog. What I'm building,
+      what I'm reading, what I'm curious about, and what I want to remember, filed by
+      hand as it happens.
+    </p>
+  </section>
+
+  <section>
+    <h2>Browse the catalog</h2>
+    <div id="indexGrid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px; margin-top:10px;"></div>
+  </section>
+
+</main>
+
+<script src="js/app.js"></script>
+<script src="js/github-cms.js"></script>
+<script>
+  renderShell("home");
+
+  const blurbs = {
+    socials:  "Where to find me elsewhere.",
+    resume:   "Education, experience, skills.",
+    projects: "Things I've built.",
+    reading:  "Books — read, reading, and queued.",
+    wishlist: "Things I want.",
+    cricket:  "A board for the game — form, matches, ideas.",
+    learning: "A board for what I'm learning right now.",
+    questions:"A board for open questions I'm chewing on.",
+    notes:    "Loose notes worth keeping.",
+    goals:    "What I'm working toward.",
+    gallery:  "A few images worth keeping around."
+  };
+  const grid = document.getElementById("indexGrid");
+  SECTIONS.filter(s => s.id !== "home").forEach((s, i) => {
+    const a = document.createElement("a");
+    a.href = s.href;
+    a.className = "card";
+    a.style.display = "block";
+    a.innerHTML = `<div class="card-meta">NO. ${String(i+2).padStart(3,"0")}</div>
+      <h3 class="card-title">${s.label}</h3>
+      <p>${blurbs[s.id] || ""}</p>`;
+    grid.appendChild(a);
+  });
+</script>
+<footer class="site-foot">The Archive &middot; built by hand, hosted on GitHub Pages</footer>
+</body>
+</html>
