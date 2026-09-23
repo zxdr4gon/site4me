@@ -1,0 +1,45 @@
+.board-toolbar{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:12px; }
+.board-toolbar .spacer{ flex:1; }
+
+.board-viewport{
+  position:relative; width:100%; height:64vh; min-height:420px;
+  border:1px solid var(--line); border-radius:2px; overflow:hidden;
+  background:
+    linear-gradient(var(--line-soft) 1px, transparent 1px) 0 0/32px 32px,
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px) 0 0/32px 32px,
+    var(--bg-raised);
+  cursor:grab;
+  touch-action:none;
+}
+.board-viewport.panning{ cursor:grabbing; }
+.board-viewport.connect-mode{ cursor:crosshair; }
+
+.board-surface{
+  position:absolute; left:0; top:0;
+  width:2400px; height:1600px;
+  transform-origin:0 0;
+}
+
+.board-strings{ position:absolute; left:0; top:0; overflow:visible; pointer-events:none; }
+.board-strings path{ fill:none; stroke:var(--string-red); stroke-width:1.6; opacity:.82; }
+
+.pin{
+  position:absolute; width:190px;
+  background:var(--panel); border:1px solid var(--line); border-radius:1px;
+  padding:12px 12px 10px; box-shadow:0 3px 10px rgba(0,0,0,.4);
+  user-select:none; cursor:default;
+}
+body.edit-mode .pin{ cursor:grab; }
+.pin::before{
+  content:""; position:absolute; top:-6px; left:50%; transform:translateX(-50%);
+  width:11px; height:11px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #d9857c, var(--string-red-hi));
+  box-shadow:0 1px 3px rgba(0,0,0,.5);
+}
+.pin.selected{ outline:2px solid var(--teal); outline-offset:2px; }
+.pin h4{ font-family:var(--serif); font-size:.94rem; margin:2px 0 4px; color:var(--ink); font-weight:600; }
+.pin p{ font-size:.82rem; color:var(--ink-dim); margin:0; max-width:none; }
+.pin .pin-controls{ position:absolute; top:6px; right:6px; display:none; gap:3px; }
+body.edit-mode .pin:hover .pin-controls{ display:flex; }
+
+.board-hint{ font-family:var(--type); font-size:.7rem; color:var(--ink-faint); margin-top:8px; }
